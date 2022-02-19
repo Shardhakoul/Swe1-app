@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-
+pip install django_on_heroku
 from pathlib import Path
 import django_on_heroku
 
