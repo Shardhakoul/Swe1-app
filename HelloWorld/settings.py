@@ -12,9 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 
 
-! pip install django_on_heroku
 from pathlib import Path
-import django_on_heroku
+import django_heroku
 
 import os
 from pathlib import Path
@@ -138,4 +137,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-django_on_heroku.settings(locals())
+django_heroku.settings(locals())
