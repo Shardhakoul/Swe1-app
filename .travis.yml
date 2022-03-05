@@ -1,17 +1,10 @@
 language: python
 
+python:
+  - 3.9
+
 install:
- - pip install -r requirements.txt
- - pip3 install black
- - pip3 install flake8
- - pip3 install coverage
- - pip3 install coveralls
+  - pip install -r requirements.txt
 
 script:
- - black .
- - flake8 --max-line-length=100
- - python3 manage.py collectstatic --no-input
- - coverage run --source="." manage.py test
-
-after_script:
-  - coveralls
+  - python manage.py test
