@@ -1,10 +1,16 @@
 language: python
-
 python:
-  - 3.9
-
+        - "3.8"
 install:
-  - pip install -r requirements.txt
+        - pip3 install -r requirements.txt
 
+before_script:
+        - python manage.py migrate
+        - python manage.py collectstatic --noinput
 script:
-  - python manage.py test
+        - black .
+        - black --check .
+        - flake8 .
+        - coverage run --source=polls manage.py test
+after_script:
+        - coveralls
