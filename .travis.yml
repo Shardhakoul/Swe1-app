@@ -1,13 +1,17 @@
-language:
-  - python
+language: python
+
 install:
-  - pip install -r requirements.txt
-  - pip install black
-  - pip install flake8
-#before_script: 
-#  - python manage.py migrate
+ - pip install -r requirements.txt
+ - pip3 install black
+ - pip3 install flake8
+ - pip3 install coverage
+ - pip3 install coveralls
+
 script:
-  - black .
-  - flake8 .
+ - black .
+ - flake8 --max-line-length=100
+ - python3 manage.py collectstatic --no-input
+ - coverage run --source="." manage.py test
+
 after_script:
   - coveralls
